@@ -72,7 +72,9 @@ var draw() {
         }
         
         if(lose === true){
-            
+            go = false;
+            Bxd = 0;
+            Byd = 0;
         }
         
          if(mousePressed && !go){
@@ -82,9 +84,11 @@ var draw() {
 }
 //"mosuse..."//
     void mouseReleased() {
+        if(!go && !lose){
         go = true;
         Bxd = (Bx-mouseX)/4;
         Byd = (mouseY-By)/8;
+    }
     };
     
 //"if"//

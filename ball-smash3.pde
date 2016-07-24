@@ -5,14 +5,17 @@
     var Byd = -3.0;
     var g = 0.05;
     var go = false;
-    var enemy = 357;
+    var enemy = 360;
     var enemye = 290;
-    var enemy2 = 470;
+    var enemy2 = 430;
     var enemye2 = 290;
+    var enemy3 = 500;
+    var enemye3 = 290;
     var blue1 = 20;
     var blue2 = 20;
     var win = false;
     var win2 = false;
+    var win3 = false;
     var lose = false;
 
 void setup() {
@@ -22,21 +25,24 @@ void setup() {
 
 var draw() {
     //background//
-        background(10, 79, 2);
+        background(77, 2, 2);
     
     //grass//
-        stroke(79, 191, 90);
-        fill(79, 191, 90);
+        stroke(36, 80, 97);
+        fill(36, 80, 97);
         rect(0, 300, 400, 100);
 
     //ball//
-        stroke(0, 0, 0);
-        fill(0, 0, 0);
+        stroke(255, 0, 255);
+        fill(255, 0, 255);
         ellipse(Bx, By, 20, 20);
         
     //rect(enemy)//
+        stroke(230, 255, 0);
+        fill(230, 255, 0);
         rect(enemy, enemye, 40, 60);
         rect(enemy2, enemye2, 40, 60);
+        rect(enemy3, enemye3, 40, 60);
         
             
     //blue//
@@ -60,12 +66,20 @@ var draw() {
             lose = true;
         }
         
+        if(enemy3<blue1){
+            lose = true;
+        }
+        
         if(By>290 && By<350 && Bx>enemy && Bx<enemy+40 && go===true){
             win = true;
         }
         
         if(By>290 && By<350 && Bx>enemy2 && Bx<enemy2+40 && go===true){
             win2 = true;
+        }
+        
+        if(By>290 && By<350 && Bx>enemy3 && Bx<enemy3+40 && go===true){
+            win3 = true;
         }
         
         if(lose === false){
@@ -76,9 +90,18 @@ var draw() {
             enemy2 = enemy2-1;
         }
         
+        if(lose === false){
+            enemy3 = enemy3-1;
+        }
+        
         if(win2 === true){
             enemy2 = enemy2+1;
             enemye2 = enemye2+1;
+        }
+        
+        if(win3 === true){
+            enemy3 = enemy3+1;
+            enemye3 = enemye3+1;
         }
         
         if(win === true){

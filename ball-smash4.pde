@@ -7,13 +7,15 @@
     var go = false;
     var enemy = 357;
     var enemye = 290;
-    var enemy2 = 470;
-    var enemye2 = 290;
     var blue1 = 20;
     var blue2 = 20;
     var win = false;
-    var win2 = false;
     var lose = false;
+    var fl = 357;
+    var fl2 = 357;
+    var fl3 = 357;
+    var fl4 = 357;
+    var fll = 350;
 
 void setup() {
  size(400, 400);
@@ -22,22 +24,32 @@ void setup() {
 
 var draw() {
     //background//
-        background(10, 79, 2);
-    
-    //grass//
-        stroke(79, 191, 90);
-        fill(79, 191, 90);
-        rect(0, 300, 400, 100);
+        background(168, 61, 61);
 
-    //ball//
+    //grass//
         stroke(0, 0, 0);
         fill(0, 0, 0);
+        rect(0, 300, 400, 100);
+        
+            
+    //red line//
+        stroke(255, 255, 0);
+        line(fl, fll, 410, 350);
+        line(fl2, 290, 410, 290);
+        line(fl3, 309, 410, 309);
+        line(fl4, 330, 410, 330);
+        
+    
+
+    //ball//
+        stroke(255, 255, 255);
+        fill(255, 255, 255);
         ellipse(Bx, By, 20, 20);
         
     //rect(enemy)//
+        stroke(4, 255, 0);
+        fill(4, 255, 0);
         rect(enemy, enemye, 40, 60);
-        rect(enemy2, enemye2, 40, 60);
-        
             
     //blue//
         stroke(34, 0, 255);
@@ -56,34 +68,25 @@ var draw() {
             lose = true;
         }
         
-        if(enemy2<blue1){
-            lose = true;
-        }
-        
         if(By>290 && By<350 && Bx>enemy && Bx<enemy+40 && go===true){
             win = true;
         }
         
-        if(By>290 && By<350 && Bx>enemy2 && Bx<enemy2+40 && go===true){
-            win2 = true;
-        }
-        
         if(lose === false){
-            enemy = enemy-1;
-        }
-        
-        if(lose === false){
-            enemy2 = enemy2-1;
-        }
-        
-        if(win2 === true){
-            enemy2 = enemy2+1;
-            enemye2 = enemye2+1;
+            enemy = enemy-5;
+            fl = fl-5;
+            fl2 = fl2-5;
+            fl3 = fl3-5;
+            fl4 = fl4-5;
         }
         
         if(win === true){
-            enemy = enemy+1;
-            enemye = enemye+1;
+            enemy = enemy+5;
+            enemye = enemye+2;
+            fl = fl+6;
+            fl2 = fl2+6;
+            fl3 = fl3+6;
+            fl4 = fl4+6;
         }
     
         if(By>340){
