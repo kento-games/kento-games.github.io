@@ -56,12 +56,12 @@ var draw() {
         }
         
         if(lose === false){
-            enemy = enemy-1;
+            enemy = enemy-2;
         }
         
         if(win === true){
-            enemy = enemy+1;
-            enemye = enemye+1;
+            enemy = enemy+2;
+            enemye = enemye+3;
         }
     
         if(By>340){

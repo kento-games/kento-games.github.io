@@ -26,6 +26,15 @@ var draw() {
     //background//
         background(168, 61, 61);
 
+    //larva//
+        stroke(255, 69, 69);
+        fill(255, 161, 161);
+        rect(131, 179, 149, 118);
+        rect(259, 171, 149, 137);
+        rect(49, 154, 126, 118);
+        rect(131, 192, 153, 118);
+        rect(-6, 218, 163, 100);
+
     //grass//
         stroke(0, 0, 0);
         fill(0, 0, 0);
@@ -73,20 +82,20 @@ var draw() {
         }
         
         if(lose === false){
-            enemy = enemy-5;
-            fl = fl-5;
-            fl2 = fl2-5;
-            fl3 = fl3-5;
-            fl4 = fl4-5;
+            enemy = enemy-6;
+            fl = fl-6;
+            fl2 = fl2-6;
+            fl3 = fl3-6;
+            fl4 = fl4-6;
         }
         
         if(win === true){
-            enemy = enemy+5;
-            enemye = enemye+2;
-            fl = fl+6;
-            fl2 = fl2+6;
-            fl3 = fl3+6;
-            fl4 = fl4+6;
+            enemy = enemy+6;
+            enemye = enemye+3;
+            fl = fl+7;
+            fl2 = fl2+7;
+            fl3 = fl3+7;
+            fl4 = fl4+7;
         }
     
         if(By>340){

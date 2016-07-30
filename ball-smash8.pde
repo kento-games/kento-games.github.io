@@ -7,10 +7,13 @@
     var go = false;
     var enemy = 357;
     var enemye = 230;
-    var blue1 = 210;
+    var s1 = 345;
+    var s2 = 345;
+    var blue1 = 20;
+    var blue2 = 20;
     var win = false;
     var lose = false;
-    var lose1 = false;
+    var hit = false;
 
 void setup() {
  size(400, 400);
@@ -19,42 +22,40 @@ void setup() {
 
 var draw() {
     //background//
-        background(99, 58, 58);
-
+        background(69, 119, 199);
+        
     //ice//
-        stroke(181, 230, 255);
-        fill(0, 162, 255);
-        rect(-33, 247, 148, 92);
-        rect(131, 220, 149, 118);
-        rect(259, 251, 149, 137);
-        rect(49, 204, 126, 118);
-        rect(131, 234, 153, 118);
-        rect(-6, 273, 163, 100);
+        stroke(24, 161, 77);
+        fill(24, 184, 115);
+        rect(319, 191, 45, 115);
+        rect(189, 220, 43, 118);
+        rect(259, 251, 38, 137);
+        rect(49, 204, 37, 118);
+        rect(131, 146, 40, 188);
+        rect(-17, 227, 43, 100);
     
     //grass//
-        stroke(0, 255, 255);
-        fill(0, 255, 255);
+        stroke(117, 66, 66);
+        fill(117, 66, 66);
         rect(0, 300, 400, 100);
-        
-    //wall//
-        stroke(110, 94, 94);
-        fill(110, 94, 94);
-        rect(175, 285, 25, 65);
 
     //ball//
-        stroke(255, 0, 255);
+        stroke(0, 0, 0);
         fill(0, 0, 0);
         ellipse(Bx, By, 20, 20);
         
     //rect(enemy)//
-        stroke(255, 0, 0);
-        fill(255, 0, 0);
+        stroke(242, 255, 0);
+        fill(255, 238, 0);
         rect(enemy, enemye, 40, 120);
+        //shield//
+            stroke(3, 255, 137);
+            line(s1, 290, s2, 350);
             
     //blue//
         stroke(34, 0, 255);
         strokeWeight(5);
-        line(210, 350, 210, 290);
+        line(20, 350, 20, 290);
         stroke(179, 36, 36);
     
     //"if"//
@@ -64,37 +65,37 @@ var draw() {
             Byd = Byd+g;
         }
         
-        if(lose === true){
-            go = false;
-            Bxd = 0;
-            Byd = 0;
-        }
-        
         if(enemy<blue1){
             lose = true;
         }
         
-        if(By>230 && By<350 && Bx>enemy && Bx<enemy+40 && go===true){
+        if(By>enemye && By<290 && Bx>enemy && Bx<enemy+40 && go===true){
             win = true;
         }
         
+        if(By>290 && By<350 && Bx>s1-20){
+            hit = true;
+        }
+        
+        if(hit === true){
+            Bxd = 0;
+            Byd = 0;
+            Bx = Bx-2;
+            By = By+1;
+        }
+        
         if(lose === false){
-            enemy = enemy-1;
-        }
-        
-        if(Bx>175 && Bx<200 && By>285 && By<355){
-            lose1 = true;
-            go = false;
-        }
-        
-        if(lose1 === true){
-            Bx = 165;
-            By = 340;
+            enemy = enemy-2;
+            s1 = s1-2;
+            s2 = s2-2;
         }
         
         if(win === true){
-            enemy = enemy+1;
-            enemye = enemye+3;
+            enemy = enemy+2;
+            enemye = enemye+2;
+            s1 = s1+2;
+            s2 = s2+2;
+            hit = false;
         }
     
         if(By>340){
@@ -105,7 +106,9 @@ var draw() {
         }
         
         if(lose === true){
-            
+            go = false;
+            Bxd = 0;
+            Byd = 0;
         }
         
          if(mousePressed && !go){
@@ -116,9 +119,9 @@ var draw() {
 //"mosuse..."//
     void mouseReleased() {
         if(!go && !lose){
-            go = true;
-            Bxd = (Bx-mouseX)/4;
-            Byd = (mouseY-By)/8;
+        go = true;
+        Bxd = (Bx-mouseX)/4;
+        Byd = (mouseY-By)/8;
         }
     };
     

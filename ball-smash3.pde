@@ -26,6 +26,16 @@ void setup() {
 var draw() {
     //background//
         background(77, 2, 2);
+
+    //cave//
+        stroke(69, 43, 43);
+        fill(0, 0, 0);
+        rect(5, -16, 186, 146);
+        rect(193, -50, 78, 193);
+        rect(332, -38, 49, 186);
+        rect(28, -29, 67, 208);
+        rect(131, -76, 153, 118);
+        rect(226, -40, 134, 143);
     
     //grass//
         stroke(36, 80, 97);
@@ -83,30 +93,30 @@ var draw() {
         }
         
         if(lose === false){
-            enemy = enemy-1;
+            enemy = enemy-2;
         }
         
         if(lose === false){
-            enemy2 = enemy2-1;
+            enemy2 = enemy2-2;
         }
         
         if(lose === false){
-            enemy3 = enemy3-1;
+            enemy3 = enemy3-2;
         }
         
         if(win2 === true){
-            enemy2 = enemy2+1;
-            enemye2 = enemye2+1;
+            enemy2 = enemy2+2;
+            enemye2 = enemye2+3;
         }
         
         if(win3 === true){
-            enemy3 = enemy3+1;
-            enemye3 = enemye3+1;
+            enemy3 = enemy3+2;
+            enemye3 = enemye3+3;
         }
         
         if(win === true){
-            enemy = enemy+1;
-            enemye = enemye+1;
+            enemy = enemy+2;
+            enemye = enemye+3;
         }
     
         if(By>340){
