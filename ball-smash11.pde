@@ -5,10 +5,10 @@
     var Byd = -3.0;
     var g = 0.05;
     var go = false;
-    var enemy = 317;
-    var enemye = 290;
-    var blue1 = 100;
-    var blue2 = 160;
+    var enemy = 357;
+    var enemye = 210;
+    var blue1 = 20;
+    var blue2 = 20;
     var win = false;
     var lose = false;
 
@@ -19,35 +19,37 @@ void setup() {
 
 var draw() {
     //background//
-        background(153, 149, 136);
+        background(59, 12, 59);
         
-    //rectangles
-        stroke(194, 191, 222);
-        fill(123, 112, 204);
-        rect(20, 20, 122, 217);
-        rect(20, 260, 122, 217);
-        rect(170, 20, 112, 142);
-        rect(170, 190, 112, 142);
-        rect(310, 20, 122, 194);
-        rect(310, 240, 122, 194);
+    //building//
+        stroke(0, 0, 0);
+        fill(66, 64, 66);
+        rect(319, 191, 45, 115);
+        rect(189, 220, 43, 118);
+        rect(259, 251, 38, 137);
+        rect(49, 204, 37, 118);
+        rect(131, 146, 40, 188);
+        rect(-17, 227, 43, 100);
     
     //grass//
-        stroke(200, 0, 255);
-        fill(200, 0, 255);
+        stroke(164, 154, 166);
+        fill(164, 154, 166);
         rect(0, 300, 400, 100);
-        
+
     //ball//
-        stroke(0, 204, 255);
-        fill(0, 255, 17);
+        stroke(14, 204, 0);
+        fill(251, 255, 0);
         ellipse(Bx, By, 20, 20);
         
     //rect(enemy)//
+        stroke(255, 0, 0);
+        fill(255, 0, 0);
         rect(enemy, enemye, 40, 60);
             
     //blue//
         stroke(34, 0, 255);
         strokeWeight(5);
-        line(40, blue2, 40, blue1);
+        line(20, 210, 20, 270);
         stroke(179, 36, 36);
     
     //"if"//
@@ -57,22 +59,21 @@ var draw() {
             Byd = Byd+g;
         }
         
-        if(enemye>10 && enemy<40){
+        if(enemy<blue1){
             lose = true;
         }
         
-        if(By>enemye && By<enemye+60 && Bx>enemy && Bx<enemy+40 && go===true){
+        if(By>enemye && By<(enemye+60) && Bx>enemy && Bx<enemy+40 && go===true){
             win = true;
         }
         
         if(lose === false){
-            enemye = enemye-1;
-            enemy = enemy-1.5;
+            enemy = enemy-2;
         }
         
         if(win === true){
-            enemy = enemy+1.5;
-            enemye = enemye+2;
+            enemy = enemy+2;
+            enemye = enemye+3;
         }
     
         if(By>340){
@@ -83,11 +84,9 @@ var draw() {
         }
         
         if(lose === true){
-            enemye = blue1;
-            enemy = 40;
             go = false;
-            Bxd = 0;
-            Byd = 0;
+            Bxd = false;
+            Byd = false;
         }
         
          if(mousePressed && !go){
