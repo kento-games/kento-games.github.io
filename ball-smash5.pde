@@ -95,6 +95,9 @@ var draw() {
         if(win === true){
             enemy = enemy+1;
             enemye = enemye+3;
+            textFont(79, 73);
+            fill(255, 0, 0);
+            text("Well done!", 18, 161);
         }
     
         if(By>340){

@@ -96,6 +96,9 @@ var draw() {
             s1 = s1+2;
             s2 = s2+2;
             hit = false;
+            textFont(79, 73);
+            fill(255, 0, 0);
+            text("Well done!", 18, 161);
         }
     
         if(By>340){
